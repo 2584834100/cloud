@@ -17,6 +17,7 @@
         <module name="cloudalibaba-provider-payment9002" />
         <module name="cloudalibaba-provider-payment9001" />
         <module name="cloudalibaba-consumer-order83" />
+        <module name="cloud-config-center3344" />
         <module name="alibaba-provider-payment9001" />
       </profile>
     </annotationProcessing>
