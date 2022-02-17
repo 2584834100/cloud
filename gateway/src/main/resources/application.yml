@@ -1,0 +1,46 @@
+server:
+  port: 9000
+
+
+spring:
+  application:
+    name: gateway
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: com.mysql.jdbc.Driver     # mysql驱动包
+    url: jdbc:mysql://192.168.56.193:3306/leng_nuan?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+  redis:
+    database: 0
+    host: 192.168.56.193
+    port: 6379
+    password: root
+  cloud:
+    gateway:
+      discovery:
+        locator: #动态路由服务名转发
+          enabled: true  #开启动态路由服务名转发
+          lower-case-service-id: true #服务名转小写
+#      #配置路由规则
+#      routes:
+#        - id: cloud-order-service
+#          uri: lb://cloud-order-service #注册中心存在的服务名称
+#          predicates:
+#            - Path=/cloud-order-service/** #路径配置
+#          filters:
+#            - StripPrefix=1
+
+eureka:
+  client:
+    #表示是否将自己注册进Eurekaserver默认为true。
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: cloud-gateway-service-9000
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
