@@ -19,6 +19,10 @@
       <module>cloudalibaba-consumer-order83</module>
       <module>cloudalibaba-config-nacos-client3377</module>
       <module>cloud-config-center3344</module>
+      <module>cloud-config-client3355</module>
+      <module>cloud-stream-rabbitmq-provider8801</module>
+    <module>cloud-stream-rabbitmq-consumer8802</module>
+    <module>cloud-stream-rabbitmq-consumer8803</module>
   </modules>
   <packaging>pom</packaging>
 

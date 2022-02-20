@@ -1,0 +1,24 @@
+server:
+  port: 8801
+spring:
+  application:
+    name: stream-rabbitmq-provider8801
+  rabbitmq:
+    host: 192.168.56.193
+    port: 5672
+    username: root
+    password: root
+    virtual-host: /
+  cloud:
+    stream:
+      binders: #在此处配置要绑定的rabbitmq的服务信息
+        local-rabbit: #表示定义的名称，用于binding整合
+          type: rabbit #消息组件类型
+      bindings: #服务整合处理
+        output: #通道的名称
+          destination: studyExchange #表示要使用的交换机名称
+          binder: local-rabbit #设置绑定器
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka

@@ -1,20 +1,17 @@
 server:
-  port: 3344
+  port: 3355
 spring:
   application:
-    name: cloud-config-center
+    name: config-client
   cloud:
     config:
-      server:
-        git:
-          uri: https://github.com/2584834100/springcloud-config.git
-          ## 搜索目录
-          search-paths:
-            - springcloud-config
-          username: 2584834100@qq.com
-          password: Lengnuan0358
-      ## 读取分支
-      label: main
+      label: main #分支名
+      name: config #配置文件名称
+      profile: dev #读取后缀
+      uri: http://localhost:3344 #配置中心地址
+    bus:
+      trace:
+        enabled: true
   #rabbitmq配置
   rabbitmq:
     host: 192.168.56.193
@@ -29,8 +26,9 @@ eureka:
     fetchRegistry: true
     service-url:
       defaultZone: http://localhost:7001/eureka
+# 暴露监控端点
 management:
-  endpoints: # 暴露bus刷新配置的端点
+  endpoints:
     web:
       exposure:
-        include: 'bus-refresh'
+        include: '*'
