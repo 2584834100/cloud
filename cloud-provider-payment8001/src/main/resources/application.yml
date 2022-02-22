@@ -10,6 +10,12 @@ spring:
     url: jdbc:mysql://192.168.56.193:3306/leng_nuan?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: root
+  zipkin:
+    base-url: http://192.168.56.193:9411
+  sleuth:
+    sampler:
+      #采样值介于0到1之间   1表示全部采集
+      probability: 1
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml

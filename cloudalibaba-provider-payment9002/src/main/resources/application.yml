@@ -6,7 +6,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.56.193:8848
+#        server-addr: 192.168.56.193:8848 #单机
+        server-addr: 192.168.56.194:8849 #集群
 #management:
 #  endpoints:
 #    web:

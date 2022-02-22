@@ -10,6 +10,9 @@ spring:
       config:
         server-addr: 192.168.56.193:8848 #Nacos服务注册中心地址
         file-extension: yaml #指定yaml个数位置
+        group: TEST_GROUP #找指定分组下的配置文件
+        namespace: 091264f2-0eb5-473d-bf41-1c60b78768a1 #命名空间id，找指定命名空间下的配置文件  优先级高于group
 
 #${prefix}-${spring.profiles.active}.${file-extension}
+#服务名-环境-文件格式（固定为yaml
 #nacos-config-client-dev.yaml

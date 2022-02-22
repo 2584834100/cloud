@@ -10,6 +10,12 @@ spring:
     username: root
     password: root
     virtual-host: /
+  zipkin:
+    base-url: http://192.168.56.193:9411
+  sleuth:
+    sampler:
+      #采样值介于0到1之间   1表示全部采集
+      probability: 1
 
 eureka:
   client:

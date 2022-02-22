@@ -18,7 +18,7 @@ spring:
         input: #通道的名称
           destination: studyExchange #表示要使用的交换机名称
           binder: local-rabbit #设置绑定器
-          group: rabbitmq-consumer # 自定义分组，避免多个消费者重复消费
+          group: rabbitmq-consumer # 自定义分组，避免多个消费者重复消费    并且持久化消息
 
 eureka:
   client:
