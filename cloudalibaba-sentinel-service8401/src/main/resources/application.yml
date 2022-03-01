@@ -13,8 +13,23 @@ spring:
         dashboard: 192.168.56.194:8858
         # 默认8719  被占用时从8719开始依次+1
         port: 8719
+#      filter:
+#        enabled: false #关闭sentinel过滤器 配合FilterContextConfig使链路流控生效，但是会异常
+#      web-context-unify: false #关闭context整合 无此属性
+      datasource: #sentinel配置持久化进nacos
+        ds1:
+          nacos:
+            serverAddr: 192.168.56.194:8849
+            dataId: cloudalibaba-sentinel-service
+            groupId: DEFAULT_GROUP
+            dataType: json
+            ruleType: flow
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+# 添加feign对sentinel的支持
+feign:
+  sentinel:
+    enabled: true

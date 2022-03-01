@@ -1,0 +1,16 @@
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.56.194:8849
+  application:
+    name: cloud-alibaba-provider
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 9004
