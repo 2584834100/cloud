@@ -20,6 +20,11 @@ spring:
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   type-aliases-package: com.cloud.entities    # 所有Entity别名类所在包
+#MyBatis使用pageHelper分页
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
 
 eureka:
   client:

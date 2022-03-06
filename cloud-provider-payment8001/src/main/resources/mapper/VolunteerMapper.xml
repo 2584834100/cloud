@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cloud.dao.VolunteerMapper">
+
+
+    <select id="getVolunteerList" resultType="com.cloud.entity.VolunteerList">
+        SELECT
+            d.volunteer_duty AS volunteerDuty,
+            v.volunteer_key AS volunteerKey
+        FROM
+            sc_owner_volunteer v
+            LEFT JOIN sc_volunteer_duty d ON v.volunteer_duty = d.id
+            LEFT JOIN owner_info i ON v.user_id = i.id
+        WHERE
+            v.user_id = #{userId}
+            AND v.is_examine = 1
+    </select>
+</mapper>
